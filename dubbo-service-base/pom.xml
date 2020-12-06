@@ -2,7 +2,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <groupId>com.fanyao</groupId>
         <artifactId>dubbo</artifactId>
@@ -10,30 +9,34 @@
         <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
 
-    <artifactId>gateway</artifactId>
-    <name>gateway</name>
+    <artifactId>dubbo-service-base</artifactId>
+    <name>dubbo-service-base</name>
     <packaging>war</packaging>
+    <description>基础服务提供者</description>
 
     <dependencies>
+        <!-- druid  -->
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-gateway</artifactId>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>${druid.version}</version>
+        </dependency>
+
+        <!--   dubbo-api-->
+        <dependency>
+            <groupId>com.fanyao</groupId>
+            <artifactId>dubbo-api-base</artifactId>
+            <version>${dubbo.api.base.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.fanyao</groupId>
             <artifactId>dubbo-common-core</artifactId>
             <version>${dubbo.common.version}</version>
-            <!-- gateway 是 webflux模型需排除web            -->
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-web</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
-    </dependencies>
 
+
+    </dependencies>
 
     <build>
         <plugins>

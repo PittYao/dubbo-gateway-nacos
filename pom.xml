@@ -4,10 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <modules>
-        <module>dubbo-api</module>
         <module>gateway</module>
-        <module>dubbo-service-user</module>
-        <module>dubbo-web-user</module>
+        <module>auth</module>
+        <module>dubbo-api-base</module>
+        <module>dubbo-service-base</module>
+        <module>dubbo-web-base</module>
+        <module>dubbo-common</module>
     </modules>
 
     <groupId>com.fanyao</groupId>
@@ -20,7 +22,12 @@
     <properties>
         <nacos.version>1.0.1</nacos.version>
         <guava.version>23.3-jre</guava.version>
-        <mybatis.plus.version>3.4.1</mybatis.plus.version>
+        <druid.version>1.2.3</druid.version>
+        <dozer.version>5.5.1</dozer.version>
+        <hutool.version>4.6.8</hutool.version>
+        <fastjson.version>1.2.75</fastjson.version>
+        <freemarker.version>2.3.29</freemarker.version>
+        <mybatis.plus.version>3.1.2</mybatis.plus.version>
         <validator.version>6.0.17.Final</validator.version>
         <spring-boot-dependencies.version>2.3.0.RELEASE</spring-boot-dependencies.version>
         <spring-cloud-dependencies.version>Hoxton.SR5</spring-cloud-dependencies.version>
@@ -31,6 +38,9 @@
 
         <!-- 依赖业务版本号    -->
         <dubbo.base.version>0.0.1-SNAPSHOT</dubbo.base.version>
+        <dubbo.common.version>0.0.1-SNAPSHOT</dubbo.common.version>
+        <dubbo.web.base.version>0.0.1-SNAPSHOT</dubbo.web.base.version>
+        <dubbo.api.base.version>0.0.1-SNAPSHOT</dubbo.api.base.version>
     </properties>
 
     <dependencyManagement>
@@ -62,71 +72,6 @@
     </dependencyManagement>
 
     <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <!-- 参数校验       -->
-        <dependency>
-            <groupId>org.hibernate.validator</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>${validator.version}</version>
-        </dependency>
-
-        <!-- Spring Boot Test -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- Mysql -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-
-        <!-- Mybatis-plus -->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>${mybatis.plus.version}</version>
-        </dependency>
-
-        <!-- AOP -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-aop</artifactId>
-        </dependency>
-
-        <!-- guava -->
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>${guava.version}</version>
-        </dependency>
-
-        <!--spring cloud 整合 nacos   -->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-        </dependency>
-
-        <!--spring cloud 整合dubbo-->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-dubbo</artifactId>
-        </dependency>
-
-        <!--   dubbo-api-->
-        <dependency>
-            <groupId>com.fanyao</groupId>
-            <artifactId>dubbo-api</artifactId>
-            <version>${dubbo.base.version}</version>
-        </dependency>
     </dependencies>
 
 

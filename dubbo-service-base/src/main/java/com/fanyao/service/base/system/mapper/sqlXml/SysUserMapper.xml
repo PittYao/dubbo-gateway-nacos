@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fanyao.service.base.system.mapper.SysUserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseCommonResult" type="com.fanyao.api.base.system.entity.SysUser">
+        <result column="id" property="id"/>
+        <result column="login_name" property="loginName"/>
+        <result column="name" property="name"/>
+        <result column="password" property="password"/>
+    </resultMap>
+
+    <select id="selectByLoginName" resultMap="BaseCommonResult" parameterType="java.lang.String">
+        SELECT
+        t.`id`,
+        t.`login_name`,
+        t.`name`,
+        t.`password`,
+        FROM
+        t_sys_user
+        <where>
+            t.login_name=#{loginName}
+        </where>
+    </select>
+
+</mapper>

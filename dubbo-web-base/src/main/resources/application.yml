@@ -1,0 +1,11 @@
+dubbo:
+  registry:
+    address: spring-cloud://localhost
+  consumer:
+    timeout: 5000
+    # 启动时监测订阅服务是否存在
+#    check: false
+    retries: 0
+  cloud:
+    subscribed-services: dubbo-server-base #订阅服务名
+

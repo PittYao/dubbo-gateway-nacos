@@ -1,0 +1,75 @@
+server:
+  port: 8088
+
+spring:
+  application:
+    name: dubbo-server-base
+
+  profiles:
+    active: dev
+
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      #连接池配置
+      min-idle: 5
+      initial-size: 5
+      max-active: 20
+      # 配置获取连接等待超时的时间
+      max-wait: 60000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      min-evictable-idle-time-millis: 30000
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      #监控
+      filter:
+        wall:
+          enabled: true
+        stat:
+          enabled: true
+
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      # Nacos 服务发现与注册配置
+      discovery:
+        server-addr: localhost:8848
+
+dubbo:
+  scan:
+    base-packages: com.fanyao.service.base
+  protocols:
+    dubbo:
+      name: dubbo
+      port: -1
+  registry:
+    address: spring-cloud://localhost
+  consumer:
+    timeout: 5000
+    check: false
+    retries: 0
+  cloud:
+    subscribed-services:
+
+# ------------------------ 配置mybatis-plus开始 ------------------------ #
+mybatis-plus:
+  # 配置扫描xml
+  mapper-locations: classpath:com/fanyao/service/base/*/mapper/*.xml
+  # 实体扫描，多个package用逗号或者分号分隔
+  type-aliases-package: com.fanyao.api.base.*.entity
+  #  显示sql
+  #  configuration:
+  #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  #    log-prefix: mybatis.plus.sql
+  global-config:
+    db-config:
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+
+# ------------------------ 配置mybatis-plus结束 ------------------------ #
+

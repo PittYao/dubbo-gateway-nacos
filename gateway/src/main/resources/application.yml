@@ -6,10 +6,16 @@ spring:
           lowerCaseServiceId: true
           enabled: true
       routes:
-        - id: web
-          uri: lb://dubbo-web-user
+        - id: web-base
+          uri: lb://dubbo-web-base
           predicates:
-            - Path=/api-user/**
+              - Path=/api-base/**
+          filters:
+            - StripPrefix=1
+        - id: web-auth
+          uri: lb://dubbo-web-auth
+          predicates:
+            - Path=/api-auth/**
           filters:
             - StripPrefix=1
 
