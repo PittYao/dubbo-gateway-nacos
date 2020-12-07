@@ -9,7 +9,7 @@ spring:
         - id: web-base
           uri: lb://dubbo-web-base
           predicates:
-              - Path=/api-base/**
+            - Path=/api-base/**
           filters:
             - StripPrefix=1
         - id: web-auth
@@ -19,3 +19,10 @@ spring:
           filters:
             - StripPrefix=1
 
+# jwt start #
+jwt:
+  # request header name
+  header: Authorization
+  skip-auth-urls:
+    - /api-auth/auth/login/password
+# jwt end #

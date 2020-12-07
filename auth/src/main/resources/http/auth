@@ -1,0 +1,15 @@
+# 测试用户密码登录
+POST http://{{host}}/api-auth/auth/login/password
+Content-Type: application/json
+
+{
+  "loginName": "fanyao",
+  "password": "123"
+}
+
+###
+
+# 测试解析token
+GET http://{{host}}/api-auth/auth/decodeToken?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.bWUiOiJmYW55YW8iLCJleHAiOjE2MDczMDc2NTF9eyJyb2xlcyI6IltdIiwiaWQiOiIxIiwidXNlck5h.eVUhX_x62xDbrAM5sazDJzfmXYIW_AsMRFqht6d2D4o
+
+###

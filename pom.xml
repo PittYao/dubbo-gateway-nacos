@@ -24,6 +24,7 @@
         <guava.version>23.3-jre</guava.version>
         <druid.version>1.2.3</druid.version>
         <dozer.version>5.5.1</dozer.version>
+        <jwt.version>3.9.0</jwt.version>
         <hutool.version>4.6.8</hutool.version>
         <fastjson.version>1.2.75</fastjson.version>
         <freemarker.version>2.3.29</freemarker.version>

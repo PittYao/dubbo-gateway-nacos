@@ -1,8 +1,10 @@
 package com.fanyao.web.auth.exception;
 
+import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.fanyao.common.core.api.CommonResult;
 import com.fanyao.common.core.enums.ResultEnum;
 import com.fanyao.common.core.exception.BusinessException;
+import com.fanyao.common.core.exception.JwtException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.rpc.RpcException;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
@@ -59,7 +61,11 @@ public class ControllerExceptionHandler {
         return CommonResult.errorResult(ResultEnum.METHOD_UN_SUPPORT);
     }
 
-
+    @ExceptionHandler({JwtException.class, JWTDecodeException.class})
+    CommonResult handleJwtException(Exception e) {
+        log.error("JWT功能异常-> {}", e.getMessage(), e);
+        return CommonResult.errorResult(HttpStatus.INTERNAL_SERVER_ERROR.value(), e.getMessage());
+    }
 
     /**
      * 处理所有不可知的异常

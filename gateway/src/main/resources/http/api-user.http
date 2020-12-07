@@ -24,13 +24,5 @@ GET https://{{host}}/api-base/users/error
 ###
 
 
-# 测试调用异常情况
-POST https://{{host}}/api-auth/auth/password
-Content-Type: application/json
-
-{
-  "loginName": "fanyao1",
-  "password": "1231"
-}
 
 ###

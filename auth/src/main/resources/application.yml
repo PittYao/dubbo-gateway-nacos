@@ -6,3 +6,13 @@ dubbo:
     retries: 0
   cloud:
     subscribed-services: dubbo-server-base
+
+#   redis start #
+spring:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+    timeout: 30000
+#   redis end  #
+

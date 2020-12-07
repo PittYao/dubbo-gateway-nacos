@@ -3,7 +3,7 @@ package com.fanyao.common.core.enums;
 import lombok.Getter;
 
 @Getter
-public enum ResultEnum implements ExtensibleEnum{
+public enum ResultEnum implements ExtensibleEnum {
     /* 成功状态码 */
     SUCCESS(200, "成功"),
     FAILURE(500, "操作失败,系统内部异常!"),
@@ -12,6 +12,11 @@ public enum ResultEnum implements ExtensibleEnum{
     POST_SUCCESS(200, "添加成功"),
     PUT_SUCCESS(200, "修改成功"),
     DELETE_SUCCESS(200, "删除成功"),
+
+    /* 认证服务 */
+    JWT_HEADER_NO_TOKEN(500, "请求头没有token"),
+    JWT_FAILURE(500, "认证服务异常"),
+
 
     /* 参数错误：10001-19999 */
     PARAM_VERIFICATION_FAILED(10001, "参数校验异常"),
@@ -46,7 +51,6 @@ public enum ResultEnum implements ExtensibleEnum{
 
     /* 权限错误：70001-79999 */
     PERMISSION_NO_ACCESS(70001, "无访问权限");
-
 
 
     private Integer code;
