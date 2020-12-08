@@ -1,0 +1,24 @@
+# 测试用户密码登录
+POST http://{{host}}/api-auth/auth/login/password
+Content-Type: application/json
+
+{
+  "loginName": "fanyao",
+  "password": "123"
+}
+
+> {% client.global.set("auth_token", response.body.data.token); %}
+
+###
+# 添加用户
+POST http://{{host}}/api-base/users
+Content-Type: application/json
+Authorization: {{auth_token}}
+
+{
+  "loginName": "fanyao",
+  "userName": "fanyao123",
+  "password": "123"
+}
+
+###

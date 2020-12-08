@@ -1,12 +1,13 @@
 package com.fanyao.web.auth.controller;
 
+import cn.hutool.crypto.SecureUtil;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import com.fanyao.api.base.system.dto.SysUserDTO;
 import com.fanyao.api.base.system.dto.UserDTO;
 import com.fanyao.api.base.system.entity.SysMenu;
 import com.fanyao.api.base.system.entity.SysRole;
 import com.fanyao.api.base.system.entity.SysUser;
 import com.fanyao.api.base.system.service.ISysMenuService;
-import com.fanyao.api.base.system.service.ISysRoleService;
 import com.fanyao.api.base.system.service.ISysUserService;
 import com.fanyao.common.core.dto.JwtDTO;
 import com.fanyao.common.core.enums.ResultEnum;
@@ -15,17 +16,13 @@ import com.fanyao.common.core.exception.BusinessException;
 import com.fanyao.common.core.exception.JwtException;
 import com.fanyao.common.core.util.JWTUtil;
 import com.fanyao.web.auth.config.JwtConfig;
-import com.fanyao.api.base.system.dto.SysUserDTO;
 import com.fanyao.web.auth.pojo.dto.UserCheckDTO;
-import com.fanyao.web.auth.util.dozer.DozerUtil;
 import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.catalina.security.SecurityConfig;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.dubbo.config.annotation.Reference;
 import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.validation.annotation.Validated;
@@ -53,19 +50,19 @@ public class AuthController {
     /**
      * 密码登录
      *
-     * @param userDTO 登录信息
+     * @param sysUserDTO 登录信息
      * @return token
      */
     @PostMapping("/login/password")
-    public JwtDTO loginPassword(@RequestBody @Validated UserDTO userDTO) {
+    public JwtDTO loginPassword(@RequestBody @Validated SysUserDTO sysUserDTO) {
         // 请求 用户服务 查询用户信息
-        SysUser sysUser = sysUserService.getSysUserByLoginName(userDTO.getLoginName());
+        SysUser sysUser = sysUserService.getSysUserByLoginName(sysUserDTO.getLoginName());
         if (Objects.isNull(sysUser)) {
             throw new BusinessException(UserEnum.USER_NOT_EXIST);
         }
 
-        // TODO 密码未作加密处理 这里要比对加密后的密码是否相等
-        if (!userDTO.getPassword().equals(sysUser.getPassword())) {
+        // 比对加密后的密码是否相等
+        if (!sysUserDTO.getPassword().equals(SecureUtil.md5(sysUserDTO.getPassword()))) {
             throw new BusinessException(UserEnum.PWD_ERROR);
         }
 

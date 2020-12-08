@@ -1,15 +1,15 @@
 package com.fanyao.service.base.system.service.impl;
 
 
+import cn.hutool.crypto.SecureUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.fanyao.api.base.system.dto.SysUserDTO;
 import com.fanyao.api.base.system.entity.SysUser;
 import com.fanyao.api.base.system.service.ISysUserService;
-import com.fanyao.common.core.enums.ResultEnum;
-import com.fanyao.common.core.exception.BusinessException;
 import com.fanyao.service.base.system.mapper.SysUserMapper;
 import com.fanyao.common.core.service.impl.BaseServiceImpl;
+import com.fanyao.service.base.util.dozer.DozerUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.collections.BagUtils;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +41,16 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUserMapper, SysUser> 
         }
 
         return sysUsers.get(0);
+    }
+
+    @Override
+    public SysUser addSysUser(SysUserDTO sysUserDTO) {
+        SysUser sysUser = DozerUtil.map(sysUserDTO, SysUser.class);
+        // 密码加密
+        String encodePwd = SecureUtil.md5(sysUser.getPassword());
+        sysUser.setPassword(encodePwd);
+        this.save(sysUser);
+        return sysUser;
     }
 
 

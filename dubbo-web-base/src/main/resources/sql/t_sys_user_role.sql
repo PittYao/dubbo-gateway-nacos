@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50726
 File Encoding         : 65001
 
-Date: 2020-12-08 15:41:47
+Date: 2020-12-08 16:29:01
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -23,7 +23,7 @@ CREATE TABLE `t_sys_user_role` (
   `user_id` int(11) NOT NULL,
   `role_id` int(11) NOT NULL,
   PRIMARY KEY (`user_id`,`role_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户-角色表';
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='用户-角色表';
 
 -- ----------------------------
 -- Records of t_sys_user_role

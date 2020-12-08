@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50726
 File Encoding         : 65001
 
-Date: 2020-12-08 15:41:26
+Date: 2020-12-08 16:28:41
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -39,4 +39,4 @@ CREATE TABLE `t_sys_menu` (
 -- ----------------------------
 INSERT INTO `t_sys_menu` VALUES ('1', '2019-01-10 15:33:40', null, '1', null, '1', '', '基础设置', '1', '/basicSetting', null);
 INSERT INTO `t_sys_menu` VALUES ('2', '2019-01-10 15:33:40', null, '2', null, '1', '', '用户管理', '2', '/usersManager', '1');
-INSERT INTO `t_sys_menu` VALUES ('3', '2019-01-10 15:33:40', null, '3', null, '1', 'get', '用户列表', '3', '/auth/**', '2');
+INSERT INTO `t_sys_menu` VALUES ('3', '2019-01-10 15:33:40', null, '3', null, '1', 'post', '用户列表', '3', '/users', '2');

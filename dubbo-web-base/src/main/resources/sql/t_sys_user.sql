@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50726
 File Encoding         : 65001
 
-Date: 2020-12-08 15:41:42
+Date: 2020-12-08 16:28:56
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -20,16 +20,17 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `t_sys_user`;
 CREATE TABLE `t_sys_user` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `create_time` datetime DEFAULT NULL,
   `modify_time` datetime DEFAULT NULL,
   `user_name` varchar(255) DEFAULT NULL,
   `login_name` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_sys_user
 -- ----------------------------
 INSERT INTO `t_sys_user` VALUES ('1', null, null, 'fanyao', 'fanyao', '123');
+INSERT INTO `t_sys_user` VALUES ('2', null, null, 'fanyao123', 'fanyao', '202cb962ac59075b964b07152d234b70');

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50726
 File Encoding         : 65001
 
-Date: 2020-12-08 15:41:32
+Date: 2020-12-08 16:28:46
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -20,7 +20,7 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `t_sys_role`;
 CREATE TABLE `t_sys_role` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `create_time` datetime DEFAULT NULL,
   `modify_time` datetime DEFAULT NULL,
   `role_alias` varchar(255) DEFAULT NULL COMMENT '角色别名',
@@ -28,7 +28,7 @@ CREATE TABLE `t_sys_role` (
   `seq` int(11) DEFAULT NULL COMMENT '排序',
   `parent_id` int(11) DEFAULT NULL COMMENT '父角色id',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='角色表';
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='角色表';
 
 -- ----------------------------
 -- Records of t_sys_role

@@ -1,10 +1,12 @@
 package com.fanyao.web.base.controller;
 
+import com.fanyao.api.base.system.dto.SysUserDTO;
 import com.fanyao.api.base.system.dto.UserDTO;
 import com.fanyao.api.base.system.entity.SysUser;
 import com.fanyao.api.base.system.service.ISysUserService;
 import com.fanyao.common.core.enums.UserEnum;
 import com.fanyao.common.core.exception.BusinessException;
+import com.fanyao.common.core.validator.group.Group;
 import com.fanyao.common.core.vo.LoginUserVo;
 import com.fanyao.web.base.util.dozer.DozerUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -38,6 +40,12 @@ public class UserController {
         }
         return DozerUtil.map(sysUser, LoginUserVo.class);
     }
+
+    @PostMapping("")
+    public SysUser addSysUser(@RequestBody @Validated SysUserDTO sysUserDTO) {
+        return sysUserService.addSysUser(sysUserDTO);
+    }
+
 
     @GetMapping("/error")
     public String error() {
