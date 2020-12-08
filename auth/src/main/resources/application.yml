@@ -2,7 +2,7 @@ dubbo:
   registry:
     address: spring-cloud://localhost
   consumer:
-    timeout: 5000
+    timeout: 10000
     retries: 0
   cloud:
     subscribed-services: dubbo-server-base
@@ -15,4 +15,15 @@ spring:
     password:
     timeout: 30000
 #   redis end  #
+
+# jwt start #
+jwt:
+  # request header name
+  header: 'Authorization'
+  # token attributes
+  userId: 'userId'
+  userName: 'userName'
+  roles: 'roles'
+
+# jwt end #
 

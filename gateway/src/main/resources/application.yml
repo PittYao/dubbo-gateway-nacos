@@ -22,7 +22,13 @@ spring:
 # jwt start #
 jwt:
   # request header name
-  header: Authorization
+  header: 'Authorization'
+  auth-server-url: 'http://dubbo-web-auth/auth/users/check'
   skip-auth-urls:
     - /api-auth/auth/login/password
+  # token attributes
+  userId: 'userId'
+  userName: 'userName'
+  roles: 'roles'
+
 # jwt end #

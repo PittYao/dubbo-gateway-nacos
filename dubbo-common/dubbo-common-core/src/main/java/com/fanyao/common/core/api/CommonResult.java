@@ -1,10 +1,9 @@
 package com.fanyao.common.core.api;
 
 import com.fanyao.common.core.enums.ExtensibleEnum;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.io.Serializable;
 
 /**
  * @author: bugProvider
@@ -12,10 +11,11 @@ import lombok.NoArgsConstructor;
  * @description: 统一返回对象
  */
 @Data
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CommonResult<T> {
+public class CommonResult<T> implements Serializable {
 
     private Integer code ;
 

@@ -5,11 +5,15 @@ import com.fanyao.api.base.system.entity.SysUser;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 /**
  * 用户表
  */
 @Mapper
 public interface SysUserMapper extends SuperMapper<SysUser> {
 
-    SysUser selectByLoginName(@Param("loginName") String loginName);
+    List<SysUser> listSysUserAndRolesById(@Param("userId") Integer userId);
+
+    List<SysUser> listSysUserAndRolesByLoginName(@Param("userName") String userName);
 }

@@ -15,7 +15,13 @@ public enum ResultEnum implements ExtensibleEnum {
 
     /* 认证服务 */
     JWT_HEADER_NO_TOKEN(500, "请求头没有token"),
+    JWT_AUTH_FAILED(500, "认证失败"),
+    JWT_AUTH_EXPIRED_FAILED(500, "认证过期"),
     JWT_FAILURE(500, "认证服务异常"),
+    JWT_USER_NO_ROLE(500, "该用户没有角色"),
+    JWT_DB_NO_MENU(500, "DB中没有配置菜单"),
+    JWT_USER_NO_MENU(500, "没有查询到url所需的角色"),
+    JWT_USER_NO_AUTHORITY(500, "该用户没有权限"),
 
 
     /* 参数错误：10001-19999 */

@@ -4,7 +4,9 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTCreator;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTDecodeException;
+import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import com.fanyao.common.core.enums.ResultEnum;
 import com.fanyao.common.core.exception.JwtException;
 import org.apache.logging.log4j.util.Strings;
 
@@ -74,8 +76,14 @@ public class JWTUtil {
         //解析token
         String dToken = deConfoundPayload(token);
         //创建返回结果
-        return JWT.require(Algorithm.HMAC256(SIGN_KEY)).build().verify(dToken);
-
+        DecodedJWT verify;
+        try {
+             verify = JWT.require(Algorithm.HMAC256(SIGN_KEY)).build().verify(dToken);
+        } catch (TokenExpiredException e) {
+            // 认证过期
+            throw new JwtException(ResultEnum.JWT_AUTH_EXPIRED_FAILED);
+        }
+        return verify;
     }
 
     /**

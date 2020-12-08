@@ -9,8 +9,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -18,14 +16,14 @@ import java.util.List;
 /**
  * @author: bugProvider
  * @date: 2020/12/4 16:32
- * @description: 用户表
+ * @description: 菜单表
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@TableName("t_sys_user")
-public class SysUser implements Serializable {
+@TableName("t_sys_menu")
+public class SysMenu implements Serializable {
 
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
@@ -36,24 +34,34 @@ public class SysUser implements Serializable {
     @TableField("modify_time")
     private Date modifyTime;
 
-    /**
-     * 登录账号
-     */
-    @TableField("login_name")
-    private String loginName;
+    @TableField("grades")
+    private Integer grades;
 
-    /**
-     * 用户名
-     */
-    @TableField("user_name")
-    private String userName;
+    @TableField("icon")
+    private String icon;
 
-    /**
-     * 密码
-     */
-    @TableField("password")
-    private String password;
+    @TableField("is_visible")
+    private Integer isVisible;
+
+    @TableField("method")
+    private String method;
+
+    @TableField("name")
+    private String name;
+
+    @TableField("seq")
+    private Integer seq;
+
+    @TableField("url")
+    private String url;
+
+    @TableField("parent_id")
+    private Integer parentId;
 
     @TableField(exist = false)
     private List<SysRole> roles;
+
+    @TableField(exist = false)
+    private List<SysMenu> children;
+
 }

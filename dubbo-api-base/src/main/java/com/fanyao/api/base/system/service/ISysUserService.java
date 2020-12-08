@@ -16,4 +16,6 @@ public interface ISysUserService extends IBaseService<SysUser> {
      * @return 用户信息
      */
     SysUser getSysUserByLoginName(String loginName);
+
+    SysUser getSysUserAndRolesById(Integer userId);
 }

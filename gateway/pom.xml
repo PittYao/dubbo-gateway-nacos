@@ -32,6 +32,12 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <dependency>
+            <groupId>com.fanyao</groupId>
+            <artifactId>dubbo-api-base</artifactId>
+            <version>${dubbo.api.base.version}</version>
+        </dependency>
     </dependencies>
 
 

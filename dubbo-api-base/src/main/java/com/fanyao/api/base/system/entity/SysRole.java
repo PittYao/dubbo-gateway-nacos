@@ -9,23 +9,20 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 /**
  * @author: bugProvider
  * @date: 2020/12/4 16:32
- * @description: 用户表
+ * @description: 角色表
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@TableName("t_sys_user")
-public class SysUser implements Serializable {
+@TableName("t_sys_role")
+public class SysRole implements Serializable {
 
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
@@ -36,24 +33,15 @@ public class SysUser implements Serializable {
     @TableField("modify_time")
     private Date modifyTime;
 
-    /**
-     * 登录账号
-     */
-    @TableField("login_name")
-    private String loginName;
+    @TableField("role_alias")
+    private String roleAlias;
 
-    /**
-     * 用户名
-     */
-    @TableField("user_name")
-    private String userName;
+    @TableField("role_name")
+    private String roleName;
 
-    /**
-     * 密码
-     */
-    @TableField("password")
-    private String password;
+    @TableField("seq")
+    private Integer seq;
 
-    @TableField(exist = false)
-    private List<SysRole> roles;
+    @TableField("parent_id")
+    private Integer parentId;
 }

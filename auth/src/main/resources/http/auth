@@ -7,9 +7,15 @@ Content-Type: application/json
   "password": "123"
 }
 
+> {% client.global.set("auth_token", response.body.data.token); %}
+
 ###
 
 # 测试解析token
-GET http://{{host}}/api-auth/auth/decodeToken?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.bWUiOiJmYW55YW8iLCJleHAiOjE2MDczMDc2NTF9eyJyb2xlcyI6IltdIiwiaWQiOiIxIiwidXNlck5h.eVUhX_x62xDbrAM5sazDJzfmXYIW_AsMRFqht6d2D4o
+GET http://{{host}}/api-auth/auth/decodeToken
+Authorization: {{auth_token}}
+###
 
+# 用户校验
+GET http://127.0.0.1:8889/auth/user/check?userId=1
 ###

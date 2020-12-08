@@ -129,7 +129,7 @@ public class SingleGenerator {
         tableFills.add(tableFill3);
         strategy.setTableFillList(tableFills);
 
-//        strategy.setSuperEntityColumns("id");
+//        strategy.setSuperEntityColumns("userId");
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix(pc.getModuleName() + "_");
         mpg.setStrategy(strategy);
