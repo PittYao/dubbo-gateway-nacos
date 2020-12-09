@@ -5,11 +5,16 @@
 
 ## 基本结构
 
-- 网关: Spring-gateway 日志 限流 token基本校验
-- BFF(backend for frontend): 各个dubbo-web开头项目-->用于数据聚合
-- dubbo-web-*: 各个dubbo服务，服务间尽量不互相调用，通过BFF调用
-- dubbo-api-base: api基础接口
-- auth: 认证服务 
+- 网关: Spring-gateway 日志 限流 token基本校验 [9900]
+- BFF(backend for frontend): 各个dubbo-web开头项目-->用于数据聚合 
+    - dubbo-web-*: 各个dubbo服务，服务间尽量不互相调用，通过BFF调用 [8082]
+- dubbo-api-base: api基础接口 
+- auth: 认证服务 [8889]
+- monitor: 监控服务 [8180]
+
+## 测试接口
+- auth/resource/http/auth.http 包含接口测试文件，运行可测试
+- gateway/resource/http/api-web-base.http 包含接口测试文件，运行可测试
 
 ## token颁发 认证流程
 

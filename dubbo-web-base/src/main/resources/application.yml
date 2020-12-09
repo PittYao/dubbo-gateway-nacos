@@ -9,3 +9,28 @@ dubbo:
   cloud:
     subscribed-services: dubbo-server-base #订阅服务名
 
+file:
+  upload-path: 'http://192.168.99.54:7000/group1/upload'
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
+    dubbo:
+      enable: true
+      dubbo-shutdown.enabled: true
+      dubbo-configs.enabled: true
+      dubbo-services.enabled: true
+      dubbo-references.enabled: true
+      dubbo-properties.enabled: true
+  health:
+    dubbo:
+      status:
+        defaults: memory,load
+        extras: registry,load,threadpool
+

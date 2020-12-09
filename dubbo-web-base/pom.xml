@@ -30,6 +30,12 @@
             <artifactId>dubbo-common-core</artifactId>
             <version>${dubbo.common.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-starter-client</artifactId>
+            <version>${spring-boot-admin.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

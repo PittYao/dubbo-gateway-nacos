@@ -30,6 +30,7 @@
         <freemarker.version>2.3.29</freemarker.version>
         <mybatis.plus.version>3.1.2</mybatis.plus.version>
         <validator.version>6.0.17.Final</validator.version>
+        <spring-boot-admin.version>2.3.1</spring-boot-admin.version>
         <spring-boot-dependencies.version>2.3.0.RELEASE</spring-boot-dependencies.version>
         <spring-cloud-dependencies.version>Hoxton.SR5</spring-cloud-dependencies.version>
         <spring-cloud-alibaba-dependencies.version>2.2.1.RELEASE</spring-cloud-alibaba-dependencies.version>
@@ -40,6 +41,7 @@
         <!-- 依赖业务版本号    -->
         <dubbo.base.version>0.0.1-SNAPSHOT</dubbo.base.version>
         <dubbo.common.version>0.0.1-SNAPSHOT</dubbo.common.version>
+        <dubbo.monitor.version>0.0.1-SNAPSHOT</dubbo.monitor.version>
         <dubbo.web.base.version>0.0.1-SNAPSHOT</dubbo.web.base.version>
         <dubbo.api.base.version>0.0.1-SNAPSHOT</dubbo.api.base.version>
     </properties>
