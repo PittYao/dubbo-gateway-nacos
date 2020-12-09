@@ -9,9 +9,9 @@
 - BFF(backend for frontend): 各个dubbo-web开头项目-->用于数据聚合 
     - dubbo-web-*: 各个dubbo服务，服务间尽量不互相调用，通过BFF调用 [8082]
 - dubbo-api-base: api基础接口 
+- dubbo-web-file: 文件服务 [8083]
 - auth: 认证服务 [8889]
 - monitor: 监控服务 [8180]
-- file: 文件服务 [8083]
 
 ## 测试接口
 - auth/resource/http/auth.http 包含接口测试文件，运行可测试

@@ -18,6 +18,12 @@ spring:
             - Path=/api-auth/**
           filters:
             - StripPrefix=1
+        - id: web-file
+            uri: lb://dubbo-web-file
+            predicates:
+              - Path=/api-file/**
+            filters:
+              - StripPrefix=1
 
 # jwt start #
 jwt:
