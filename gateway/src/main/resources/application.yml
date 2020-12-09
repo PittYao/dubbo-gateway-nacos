@@ -36,5 +36,4 @@ jwt:
   userId: 'userId'
   userName: 'userName'
   roles: 'roles'
-
 # jwt end #

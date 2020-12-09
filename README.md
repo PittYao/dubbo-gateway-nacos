@@ -12,6 +12,7 @@
 - dubbo-web-file: 文件服务 [8083]
 - auth: 认证服务 [8889]
 - monitor: 监控服务 [8180]
+- nacos: 注册中心[8848]
 
 ## 测试接口
 - auth/resource/http/auth.http 包含接口测试文件，运行可测试
