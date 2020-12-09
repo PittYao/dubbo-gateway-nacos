@@ -1,27 +1,18 @@
-package com.fanyao.web.base.controller;
+package com.fanyao.dubbo.web.file.controller;
 
 import cn.hutool.core.io.resource.InputStreamResource;
 import cn.hutool.core.lang.Console;
 import cn.hutool.http.HttpUtil;
-import com.fanyao.api.base.system.dto.SysUserDTO;
-import com.fanyao.api.base.system.dto.UserDTO;
-import com.fanyao.api.base.system.entity.SysUser;
-import com.fanyao.api.base.system.service.ISysUserService;
-import com.fanyao.common.core.enums.UserEnum;
-import com.fanyao.common.core.exception.BusinessException;
-import com.fanyao.common.core.vo.LoginUserVo;
-import com.fanyao.web.base.util.dozer.DozerUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 
 @Slf4j
@@ -43,7 +34,7 @@ public class FileController {
             params.put("file", isr);
             params.put("path", "86501729"); // 存储文件夹名字
             params.put("output", "json");
-            params.put("auth_token", "123"); // 文件指定的token
+            params.put("auth_token", "1234"); // 文件指定的token
             String resp = HttpUtil.post(FileUploadPath, params);
             Console.log("resp: {}", resp);
             // auth error

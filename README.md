@@ -11,6 +11,7 @@
 - dubbo-api-base: api基础接口 
 - auth: 认证服务 [8889]
 - monitor: 监控服务 [8180]
+- file: 文件服务 [8083]
 
 ## 测试接口
 - auth/resource/http/auth.http 包含接口测试文件，运行可测试
@@ -22,3 +23,9 @@
     网关-->转发到认证服务-->(校验用户信息-->颁发token)-->请求头中加入 ket=Authorization;value=token
 - token鉴权
     网关-->(基础token校验,token是否有效,token是否已过期)-->转发请求到认证服务-->(校验token是否满足访问权限)-->返回网关,满足则放行,不满足则返回权限不足
+    
+## 文件服务
+- 文件分布式系统采用 [go-fastdfs](https://sjqzhang.github.io/go-fastdfs/#vision)提供服务
+- 上传接口 POST /file/upload
+- token校验接口 POST /file/token/auth
+- 具体的token校验流程和go-fastdfs集群配置参考官方文档

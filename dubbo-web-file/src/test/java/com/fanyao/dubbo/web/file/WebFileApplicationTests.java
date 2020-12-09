@@ -1,10 +1,10 @@
-package com.fanyao.web.base;
+package com.fanyao.dubbo.web.file;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DubboWebUserApplicationTests {
+class WebFileApplicationTests {
 
     @Test
     void contextLoads() {

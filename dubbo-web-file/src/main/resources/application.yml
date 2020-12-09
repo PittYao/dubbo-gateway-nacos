@@ -1,13 +1,12 @@
-dubbo:
-  registry:
-    address: spring-cloud://localhost
-  consumer:
-    timeout: 5000
-    # 启动时监测订阅服务是否存在
-    check: false
-    retries: 0
-  cloud:
-    subscribed-services: dubbo-server-base #订阅服务名
+spring:
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+file:
+  upload-path: 'http://192.168.99.54:7000/group1/upload'
+  auth-url: '/file/token/auth'
 
 management:
   endpoints:

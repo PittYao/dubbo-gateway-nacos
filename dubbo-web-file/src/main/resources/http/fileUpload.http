@@ -1,0 +1,17 @@
+#上传文件 注意：该测试有问题不可用
+POST http://{{host}}/file/upload
+#Token
+#Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX3R
+Cache-Control: no-cache
+#请求类型
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+# name接口定义的参数名，filename 文件名（我们可以自己取名字）
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="socketio.png"
+Content-Type: multipart/form-data
+#文件地址
+< C:\Users\fanya\Pictures\socketio.png
+--WebAppBoundary--
+
+###

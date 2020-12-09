@@ -1,0 +1,19 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: dubbo-web-file
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+  boot:
+    admin:
+      client:
+        url: http://127.0.0.1:8180
+        instance:
+          prefer-ip: true
+          service-base-url: http://127.0.0.1:${server.port}
