@@ -6,7 +6,10 @@ spring:
 
 file:
   upload-path: 'http://192.168.99.54:7000/group1/upload'
-  auth-url: '/file/token/auth'
+
+unconversion:
+  urls:
+    - '/file/token/auth'
 
 management:
   endpoints:

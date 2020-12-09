@@ -23,6 +23,8 @@ public enum ResultEnum implements ExtensibleEnum {
     JWT_USER_NO_MENU(500, "没有查询到url所需的角色"),
     JWT_USER_NO_AUTHORITY(500, "该用户没有权限"),
 
+    /* 文件服务 */
+    FILE_UPLOAD_FAIL(500, "文件上传失败"),
 
     /* 参数错误：10001-19999 */
     PARAM_VERIFICATION_FAILED(10001, "参数校验异常"),

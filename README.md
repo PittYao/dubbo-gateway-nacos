@@ -9,7 +9,7 @@
 - BFF(backend for frontend): 各个dubbo-web开头项目-->用于数据聚合 
     - dubbo-web-*: 各个dubbo服务，服务间尽量不互相调用，通过BFF调用 [8082]
 - dubbo-api-base: api基础接口 
-- dubbo-web-file: 文件服务 [8083]
+- dubbo-web-file: 文件服务 [8083] 文件服务控制台[8088]
 - auth: 认证服务 [8889]
 - monitor: 监控服务 [8180]
 - nacos: 注册中心[8848]
@@ -30,3 +30,5 @@
 - 上传接口 POST /file/upload
 - token校验接口 POST /file/token/auth
 - 具体的token校验流程和go-fastdfs集群配置参考官方文档
+- 文件管理平台 [go-fastdfs-web](https://github.com/perfree/go-fastdfs-web/releases)
+- 使用参考官方文档
