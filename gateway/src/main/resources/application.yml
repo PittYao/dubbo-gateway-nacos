@@ -19,11 +19,11 @@ spring:
           filters:
             - StripPrefix=1
         - id: web-file
-            uri: lb://dubbo-web-file
-            predicates:
-              - Path=/api-file/**
-            filters:
-              - StripPrefix=1
+          uri: lb://dubbo-web-file
+          predicates:
+            - Path=/api-file/**
+          filters:
+            - StripPrefix=1
 
 # jwt start #
 jwt:
@@ -32,6 +32,7 @@ jwt:
   auth-server-url: 'http://dubbo-web-auth/auth/users/check'
   skip-auth-urls:
     - /api-auth/auth/login/password
+    - /api-file/file/upload
   # token attributes
   userId: 'userId'
   userName: 'userName'

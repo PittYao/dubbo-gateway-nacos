@@ -7,15 +7,18 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.fanyao.common.core.enums.ResultEnum;
 import com.fanyao.common.core.exception.BusinessException;
+import com.fanyao.common.core.util.QRCodeUtil;
 import com.fanyao.dubbo.web.file.pojo.dto.FileServerDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -95,4 +98,13 @@ public class FileController {
         return "ok";
     }
 
+    /**
+     * 生成二维码
+     */
+    @GetMapping("/qrcode")
+    public String createQrCode(String qrResource) {
+        String fileUploadPrefix = "E:\\IdeaWorkSpace\\个人\\dubbo\\dubbo-web-file\\src\\main\\resources\\static";
+        String pngDir = QRCodeUtil.createQRCodeImage(fileUploadPrefix + File.separator + "upload" + File.separator + "qr" + File.separator, qrResource, 150, 150);
+        return pngDir;
+    }
 }

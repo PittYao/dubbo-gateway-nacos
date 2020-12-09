@@ -15,3 +15,8 @@ Content-Type: multipart/form-data
 --WebAppBoundary--
 
 ###
+# 生成二维码
+GET https://{{host}}/file/qrcode?qrResource=https://www.baidu.com
+Accept: application/json
+
+###

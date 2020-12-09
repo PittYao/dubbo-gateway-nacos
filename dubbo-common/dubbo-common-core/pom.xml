@@ -34,6 +34,19 @@
             <scope>option</scope>
         </dependency>
 
+        <!-- zxing begin -->
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>${com.google.zxing.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>javase</artifactId>
+            <version>${com.google.zxing.version}</version>
+        </dependency>
+        <!-- zxing end -->
+
         <!-- 参数校验       -->
         <dependency>
             <groupId>org.hibernate.validator</groupId>
